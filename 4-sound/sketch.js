@@ -21,7 +21,7 @@ function setup() {
 
 function draw(){
 	background(220);
-
+  ellipse(100,100,50,50)
   me.drawMe();
   me.moveMe();
 
@@ -112,4 +112,10 @@ class Ball {
     		}
   	}
 
+}
+
+function mousePressed() {
+  mySound.setVolume(0.1);
+  mySound.play();
+  ellipse(mouseX,mouseY,5,5)
 }
