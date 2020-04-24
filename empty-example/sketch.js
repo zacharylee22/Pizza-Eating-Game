@@ -31,7 +31,7 @@ function draw(){
     var y = random(height);
     var r = 200
     ellipse(x, y, r*2, r*2)
-    fill("red")
+
 
 
   stroke("black")
