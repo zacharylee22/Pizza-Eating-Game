@@ -6,9 +6,18 @@ let button;
 function setup() {
 createCanvas(1400, 725);
 c = color(227, 178, 54);
-button = createButton('dough');
+
+button = createButton('Dough');
   button.position(19, 19);
   button.mousePressed(crust);
+
+  button = createButton('Tomato Sauce');
+    button.position(19, 39);
+    button.mousePressed(sauz);
+
+    button = createButton('Cheese');
+      button.position(19, 59);
+      button.mousePressed(cheez);
 }
 
 function draw(){
