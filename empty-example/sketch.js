@@ -3,9 +3,7 @@ function setup() {
 }
 
 function draw(){
-<<<<<<< Updated upstream
 	background(100);
-=======
 	background("white");
   fill(227, 178, 54);
   noStroke();
