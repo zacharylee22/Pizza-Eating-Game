@@ -25,7 +25,7 @@ function draw(){
   pepperoni(800, 320);
   pepperoni(700, 320);
 
-//pepperoni makin thing https://www.youtube.com/watch?v=XATr_jdh-44
+//pepperoni making thing https://www.youtube.com/watch?v=XATr_jdh-44
   for (var i = 0; i < 50; i++) {
     var x = random(width);
     var y = random(height);
