@@ -8,7 +8,7 @@ let mySound;
 
 function preload() {
   soundFormats('mp3', 'ogg','wav');
-  mySound = loadSound('bounce.wav');
+  mySound = loadSound('munch.wav');
 }
 
 function setup() {
