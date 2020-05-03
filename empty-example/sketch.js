@@ -1,19 +1,21 @@
 let distance = 50;
 let value = "white";
 let c;
+let s;
 let button;
 
 function setup() {
 createCanvas(1400, 725);
 c = color(227, 178, 54);
+s = color(245, 19, 2);
 
 button = createButton('Dough');
   button.position(19, 19);
-  button.mousePressed(crust);
+  button.mousePressed(makecrust);
 
   button = createButton('Tomato Sauce');
     button.position(19, 39);
-    button.mousePressed(sauz);
+    button.mousePressed(makesauz);
 
     button = createButton('Cheese');
       button.position(19, 59);
@@ -36,16 +38,6 @@ function draw(){
   strokeWeight(2);
   noFill();
   rect(400, 100, 600, 530);
-
-
-}
-
-function mousePressed() {
-  if (value === "white") {
-    value = (c);
-  } else {
-    value = "white";
-  }
 }
 
 function pepperoni(x,y){
@@ -57,13 +49,29 @@ function pepperoni(x,y){
 function crust(){
   fill(value);
   noStroke();
-  ellipse(700, 362, 450);
+  ellipse(700, 362, 460);
 
 }
 
+function makecrust(){
+    if (value === "white") {
+      value = (c);
+    } else {
+      value = "white";
+    }
+}
+
 function sauz(){
-  fill(245, 19, 2);
+  fill(value);
   ellipse(700, 362, 398);
+}
+
+function makesauz(){
+  if (value === "c") {
+    value = (s);
+  } else {
+    value = "c";
+  }
 }
 
 function cheez(){
