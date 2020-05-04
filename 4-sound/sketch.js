@@ -1,5 +1,6 @@
 //create an empty array called balls
 let balls = [];
+let dots = [];
 
 //create a variable to hold your avatar
 let me;
@@ -13,6 +14,7 @@ function preload() {
 
 function setup() {
   createCanvas(500, 400);
+  	background(220);
 
   //make one avatar called me
   me = new Avatar(width/2, 300, 3);
@@ -21,7 +23,7 @@ function setup() {
 
 function draw(){
 	background(220);
-  ellipse(100,100,50,50)
+//  ellipse(100,100,50,50)
   me.drawMe();
   me.moveMe();
 
@@ -38,7 +40,36 @@ function draw(){
         	balls[i].bounceBall();
 	  }
 
+  for (let i=0; i<dots.length; i++){
+    dots[i].drawDot();
+  }
+
 }
+
+function mousePressed() {
+  mySound.setVolume(0.1);
+  mySound.play();
+
+  let d = new dot(mouseX,mouseY)
+  dots.push(d);
+  console.log(dots)
+}
+
+class dot {
+
+    constructor(x,y){
+      this.x = x;
+      this.y = y;
+    }
+
+    drawDot(){
+      fill("blue")
+      ellipse(this.x,this.y,5,5)
+    }
+
+
+}
+
 
 //avatar class
 class Avatar {
@@ -112,10 +143,4 @@ class Ball {
     		}
   	}
 
-}
-
-function mousePressed() {
-  mySound.setVolume(0.1);
-  mySound.play();
-  ellipse(mouseX,mouseY,5,5)
 }
