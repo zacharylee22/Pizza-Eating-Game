@@ -1,38 +1,45 @@
 let distance = 50;
-let value = "white";
-let c;
-let s;
-let button;
+
+let doughbutton;
+let saucebutton;
+let cheesebutton;
+let pepperonibutton;
+
+let dough = false;
+let pizzasauce = false;
+let yummycheese = false;
+let topping1 = false;
 
 function setup() {
-createCanvas(1400, 725);
-c = color(227, 178, 54);
-s = color(245, 19, 2);
+  createCanvas(1400, 725);
 
-button = createButton('Dough');
-  button.position(19, 19);
-  button.mousePressed(makecrust);
+  doughbutton = createButton('Dough');
+  doughbutton.position(100, 100);
+  doughbutton.size(200, 200);
+  doughbutton.mousePressed(makecrust);
 
-  button = createButton('Tomato Sauce');
-    button.position(19, 39);
-    button.mousePressed(makesauz);
+  saucebutton = createButton('Tomato Sauce');
+  saucebutton.position(100, 430);
+  saucebutton.size(200, 200);
+  saucebutton.mousePressed(makesauce);
 
-    button = createButton('Cheese');
-      button.position(19, 59);
-      button.mousePressed(cheez);
+  cheesebutton = createButton('Cheese');
+  cheesebutton.position(1100, 100);
+  cheesebutton.size(200, 200);
+  cheesebutton.mousePressed(makecheese);
+
+  pepperonibutton = createButton('Pepperoni');
+  pepperonibutton.position(1100, 430);
+  pepperonibutton.size(200, 200);
+  pepperonibutton.mousePressed(makepepperoni);
 }
 
 function draw(){
 	background("white");
   crust();
-  sauz();
-  cheez();
-
-  pepperoni(600, 400);
-  pepperoni(800, 450);
-  pepperoni(720, 200);
-  pepperoni(680, 450);
-  pepperoni(640, 280);
+  sauce();
+  cheese();
+  showpepperoni();
 
   stroke("black")
   strokeWeight(2);
@@ -43,38 +50,72 @@ function draw(){
 function pepperoni(x,y){
   fill(245, 19, 2);
   noStroke();
-  ellipse(x, y, 40);
+  ellipse(x, y, 50);
 }
 
-function crust(){
-  fill(value);
-  noStroke();
-  ellipse(700, 362, 460);
-
-}
-
-function makecrust(){
-    if (value === "white") {
-      value = (c);
-    } else {
-      value = "white";
-    }
-}
-
-function sauz(){
-  fill(value);
-  ellipse(700, 362, 398);
-}
-
-function makesauz(){
-  if (value === "c") {
-    value = (s);
-  } else {
-    value = "c";
+function showpepperoni(){
+  if (topping1 == true){
+  pepperoni(600, 400);
+  pepperoni(800, 450);
+  pepperoni(720, 220);
+  pepperoni(680, 450);
+  pepperoni(640, 260);
+  pepperoni(750, 340);
+  pepperoni(680, 370);
+  pepperoni(730, 500);
+  pepperoni(740, 420);
+  pepperoni(850, 380);
+  pepperoni(820, 280);
+  pepperoni(580, 325);
+  pepperoni(610, 480);
+  pepperoni(690, 305);
+  }
+  else{
   }
 }
 
-function cheez(){
-  fill(250, 215, 40)
-  ellipse(700, 362, 378);
+function crust(){
+  if (dough == true){
+    fill(227, 178, 54);
+    noStroke();
+    ellipse(700, 362, 460);
+  }
+  else{
+  }
+}
+
+function sauce(){
+  if (pizzasauce == true){
+    fill(245, 19, 2);
+    noStroke();
+    ellipse(700, 362, 398);
+  }
+  else{
+  }
+}
+
+function cheese(){
+  if (yummycheese == true){
+    fill(250, 215, 40);
+    noStroke();
+    ellipse(700, 362, 378);
+  }
+  else{
+  }
+}
+
+function makecrust(){
+  dough = true;
+}
+
+function makesauce(){
+  pizzasauce = true;
+}
+
+function makecheese(){
+  yummycheese = true;
+}
+
+function makepepperoni(){
+  topping1 = true;
 }
