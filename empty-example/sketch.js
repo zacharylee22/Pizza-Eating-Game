@@ -41,6 +41,12 @@ function draw(){
   cheese();
   showpepperoni();
 
+  textSize(90);
+  textFont('Georgia');
+  textAlign(CENTER);
+  fill("black");
+  text('Pizzaria', 700, 80);
+
   stroke("black")
   strokeWeight(2);
   noFill();
