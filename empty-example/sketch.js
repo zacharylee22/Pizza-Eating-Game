@@ -2,11 +2,13 @@ let doughbutton;
 let saucebutton;
 let cheesebutton;
 let pepperonibutton;
+let eatingbutton;
 
 let dough = false;
 let pizzasauce = false;
 let yummycheese = false;
 let topping1 = false;
+let eating = false;
 
 function setup() {
   createCanvas(1400, 725);
@@ -50,6 +52,7 @@ function draw(){
   sauce();
   cheese();
   showpepperoni();
+  eat();
 
   textSize(90);
   textFont('Georgia');
@@ -87,6 +90,7 @@ function showpepperoni(){
   pepperoni(690, 305);
   }
   else{
+    topping1 = false
   }
 }
 
@@ -97,6 +101,7 @@ function crust(){
     ellipse(700, 362, 460);
   }
   else{
+    dough = false
   }
 }
 
@@ -107,6 +112,7 @@ function sauce(){
     ellipse(700, 362, 398);
   }
   else{
+    pizzasauce = false
   }
 }
 
@@ -117,6 +123,19 @@ function cheese(){
     ellipse(700, 362, 378);
   }
   else{
+    yummycheese = false
+  }
+}
+
+function eat(){
+  if (yummycheese == true && pizzasauce == true && dough == true && topping1 == true){
+    eatingbutton = createButton('Ready to eat?!');
+    eatingbutton.style('background-color', "lightblue");
+    eatingbutton.style('font-size', '20px');
+    eatingbutton.style('font-family', "Georgia");
+    eatingbutton.position(1100, 25);
+    eatingbutton.size(200, 50);
+    eatingbutton.mousePressed(readytoeat);
   }
 }
 
@@ -134,4 +153,8 @@ function makecheese(){
 
 function makepepperoni(){
   topping1 = true;
+}
+
+function  readytoeat(){
+  eating = true
 }
