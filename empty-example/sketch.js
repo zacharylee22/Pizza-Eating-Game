@@ -1,5 +1,3 @@
-let big = 50
-
 let doughbutton;
 let saucebutton;
 let cheesebutton;
@@ -15,26 +13,32 @@ function setup() {
 
   doughbutton = createButton('Dough');
   doughbutton.style('background-color', "lightblue");
-  doughbutton.style('textSize', big);
-  doughbutton.style('textFont', "Georgia");
+  doughbutton.style('font-size', '40px');
+  doughbutton.style('font-family', "Georgia");
   doughbutton.position(100, 100);
   doughbutton.size(200, 200);
   doughbutton.mousePressed(makecrust);
 
   saucebutton = createButton('Tomato Sauce');
   saucebutton.style('background-color', "lightblue");
+  saucebutton.style('font-size', '40px');
+  saucebutton.style('font-family', "Georgia");
   saucebutton.position(100, 430);
   saucebutton.size(200, 200);
   saucebutton.mousePressed(makesauce);
 
   cheesebutton = createButton('Cheese');
   cheesebutton.style('background-color', "lightblue");
+  cheesebutton.style('font-size', '40px');
+  cheesebutton.style('font-family', "Georgia");
   cheesebutton.position(1100, 100);
   cheesebutton.size(200, 200);
   cheesebutton.mousePressed(makecheese);
 
   pepperonibutton = createButton('Pepperoni');
   pepperonibutton.style('background-color', "lightblue");
+  pepperonibutton.style('font-size', '40px');
+  pepperonibutton.style('font-family', "Georgia");
   pepperonibutton.position(1100, 430);
   pepperonibutton.size(200, 200);
   pepperonibutton.mousePressed(makepepperoni);
