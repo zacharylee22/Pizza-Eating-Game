@@ -1,4 +1,4 @@
-let distance = 50;
+let big = 50
 
 let doughbutton;
 let saucebutton;
@@ -14,21 +14,27 @@ function setup() {
   createCanvas(1400, 725);
 
   doughbutton = createButton('Dough');
+  doughbutton.style('background-color', "lightblue");
+  doughbutton.style('textSize', big);
+  doughbutton.style('textFont', "Georgia");
   doughbutton.position(100, 100);
   doughbutton.size(200, 200);
   doughbutton.mousePressed(makecrust);
 
   saucebutton = createButton('Tomato Sauce');
+  saucebutton.style('background-color', "lightblue");
   saucebutton.position(100, 430);
   saucebutton.size(200, 200);
   saucebutton.mousePressed(makesauce);
 
   cheesebutton = createButton('Cheese');
+  cheesebutton.style('background-color', "lightblue");
   cheesebutton.position(1100, 100);
   cheesebutton.size(200, 200);
   cheesebutton.mousePressed(makecheese);
 
   pepperonibutton = createButton('Pepperoni');
+  pepperonibutton.style('background-color', "lightblue");
   pepperonibutton.position(1100, 430);
   pepperonibutton.size(200, 200);
   pepperonibutton.mousePressed(makepepperoni);
@@ -60,7 +66,7 @@ function pepperoni(x,y){
 }
 
 function showpepperoni(){
-  if (topping1 == true){
+  if (topping1 == true && yummycheese == true && pizzasauce == true && dough == true ){
   pepperoni(600, 400);
   pepperoni(800, 450);
   pepperoni(720, 220);
@@ -91,7 +97,7 @@ function crust(){
 }
 
 function sauce(){
-  if (pizzasauce == true){
+  if (pizzasauce == true && dough == true){
     fill(245, 19, 2);
     noStroke();
     ellipse(700, 362, 398);
@@ -101,7 +107,7 @@ function sauce(){
 }
 
 function cheese(){
-  if (yummycheese == true){
+  if (yummycheese == true && pizzasauce == true && dough == true){
     fill(250, 215, 40);
     noStroke();
     ellipse(700, 362, 378);
