@@ -1,8 +1,9 @@
+let mySound;
 let dots = [];
 
-let mySound;
+let eating=false;
 
-var timerValue = 0;
+var timerValue = 10;
 var startButton;
 
 function preload() {
@@ -11,40 +12,50 @@ function preload() {
 }
 
 function setup() {
+  createCanvas(700, 700);
+  fill("red")
+  ellipse(100,100,50,50)
   createCanvas(500, 400);
   	background(220);
     textAlign(CENTER);
- setInterval(timeIt, 1000);
+  setInterval(timeIt, 1000);
 
 }
 
 function draw(){
+	background(100);
 	background(220);
-
 
   for (let i=0; i<dots.length; i++){
     dots[i].drawDot();
   }
 
-  if (timerValue >= 0) {
+  if (timerValue >=0) {
     text(timerValue + " SECONDS", width / 2, height / 2);
   }
 
 }
 
+
 function mousePressed() {
+  if (eating==true){
   mySound.setVolume(0.1);
   mySound.play();
+
 
   let d = new dot(mouseX,mouseY)
   dots.push(d);
   console.log(dots)
+  }
 }
 
+
 function timeIt() {
-  if (timerValue >= 0) {
-    timerValue++;
-  }
+  if (eating==true){
+   if (timerValue >0) {
+    timerValue--;
+    }
+ }
 }
 
 class dot {
