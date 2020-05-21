@@ -13,8 +13,7 @@ let eating = false;
 let mySound;
 let dots = [];
 
-let eating=false;
-
+let timeToEat;
 var timerValue = 10;
 var startButton;
 
@@ -60,6 +59,16 @@ function setup() {
   pepperonibutton.position(1100, 430);
   pepperonibutton.size(200, 200);
   pepperonibutton.mousePressed(makepepperoni);
+
+
+  eatingbutton = createButton('Ready to eat?!');
+  eatingbutton.style('background-color', "lightblue");
+  eatingbutton.style('font-size', '20px');
+  eatingbutton.style('font-family', "Georgia");
+  eatingbutton.position(1100, 25);
+  eatingbutton.size(200, 50);
+  eatingbutton.mousePressed(readytoeat);
+  eatingbutton.hide();
 }
 
 function draw(){
@@ -84,30 +93,41 @@ function draw(){
   for (let i=0; i<dots.length; i++){
    dots[i].drawDot();
  }
+if(eating==true){
+  if (timerValue >=0) {
+    fill("black");
+    noStroke();
+    text(timerValue + " SECONDS", width / 2, height/2);
+  }
+}
 
- if (timerValue >=0) {
-   text(timerValue + " SECONDS", width / 2, height / 2);
- }
+if(timerValue < 0){
+  eating = false;
+  print(timerValue + dots.length);
+  fill("black");
+  noStroke();
+  text("You got "+dots.length+" bites",width/2,height-height/5)
+}
 
 }
 
 function mousePressed() {
   if (eating == true){
-  mySound.setVolume(0.1);
-  mySound.play();
-
-
   let d = new dot(mouseX,mouseY)
   dots.push(d);
-  console.log(dots)
+  if (frameCount>timeToEat +5){
+    mySound.setVolume(0.1);
+    mySound.play();
+  }
+
   }
 }
 
 function timeIt() {
   if (eating == true){
-   if (timerValue >0) {
+   //if (timerValue >0) {
     timerValue--;
-    }
+    //}
  }
 }
 
@@ -116,6 +136,7 @@ class dot {
     constructor(x,y){
       this.x = x;
       this.y = y;
+
     }
 
     drawDot(){
@@ -194,13 +215,7 @@ function cheese(){
 
 function eat(){
   if (yummycheese == true && pizzasauce == true && dough == true && topping1 == true){
-    eatingbutton = createButton('Ready to eat?!');
-    eatingbutton.style('background-color', "lightblue");
-    eatingbutton.style('font-size', '20px');
-    eatingbutton.style('font-family', "Georgia");
-    eatingbutton.position(1100, 25);
-    eatingbutton.size(200, 50);
-    eatingbutton.mousePressed(readytoeat);
+    eatingbutton.show();
   }
 }
 
@@ -221,5 +236,6 @@ function makepepperoni(){
 }
 
 function  readytoeat(){
-  eating = true
+  eating = true;
+  timeToEat = frameCount;
 }
